@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <script type="text/javascript">
+
+    	const teclado = { 0: ['0', ' '], 1: ['1', '.'], 2: ['2', 'a', 'b', 'c'], 3: ['3', 'd', 'e', 'f'], 
+			4: ['4', 'g', 'h', 'i'], 5: ['5', 'j', 'k', 'l'], 6: ['6', 'm', 'n', 'o'], 
+			7: ['7', 'p', 'q', 'r', 's'],  8: ['8', 't', 'u', 'v'], 
+			9: ['9', 'w', 'x', 'y', 'z'], "#": "#" };
+
+		function separarNumeros(numero) {
+			const arrNumero = numero.split('#').join('').split('');
+			const arr = [];
+			let arr2 = [], cont = 0;
+
+			for (let x of arrNumero) {
+				if (x !== arrNumero[cont - 1] && cont > 0) {
+					arr.push(arr2);
+					arr2 = [];
+				}
+				
+				arr2.push(x);
+				cont++;
+
+				cont === arrNumero.length && arr.push(arr2)
+			}
+			
+			return arr.filter(arr => arr[0] !== ' ');
+		}
+
+		function escribir(numero) {
+			const arrHastash = numero.split('');
+			const espacios = new Map();
+			const matrizNumeros = separarNumeros(numero);
+			const numeroTeclasPresionadas = [];
+			const quitarRepetidos = [];
+			let palabra = '';
+			
+			numero.split('').map((carcater, index) => carcater === "#" && arrHastash[index - 1])
+							.filter(carcater => typeof carcater === 'string')
+							.forEach(num => espacios.set(num, "#"));
+
+			for (let x of matrizNumeros) {
+				let contCaracteres = x.length < 5 ? x.length
+				: x.length - (teclado[x[0]].length * Math.floor(x.length / teclado[x[0]].length)) 
+				
+				contCaracteres = contCaracteres === 0 ? teclado[x[0]].length : contCaracteres;
+				quitarRepetidos.push(...Array.from(new Set(x)));
+
+				numeroTeclasPresionadas.push(contCaracteres);
+			}
+
+			quitarRepetidos.forEach((carcater, index) => {
+				const pos = numeroTeclasPresionadas[index];
+				const arrCaracteres = teclado[carcater]; 
+				
+				palabra += espacios.get(carcater) === '#' ? arrCaracteres[pos - 1].toUpperCase() 
+				: arrCaracteres[pos === 0 ? pos : pos - 1];
+			});
+
+			console.log(palabra)
+		}
+
+		escribir("55555555555555555555555555555555555555555555888#9999911")
+
+		// { 0: ['0', ' '], 1: ['1', '.'], 2: ['2', 'a', 'b', 'c'], 3: ['3', 'd', 'e', 'f'], 
+		// 	4: ['4', 'g', 'h', 'i'], 5: ['5', 'j', 'k', 'l'], 6: ['6', 'm', 'n', 'o'], 
+		// 	7: ['7', 'p', 'q', 'r', 's'],  8: ['8', 't', 'u', 'v'], 
+		// 	9: ['9', 'w', 'x', 'y', 'z'], "#": "#" }
+
+    </script>
+  </body>
+</html>
