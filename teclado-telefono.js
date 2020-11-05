@@ -1,3 +1,26 @@
+/*
+	1: 1 ó punto
+	2: 2abc
+	3: 3def
+	4: 4ghi
+	5: 5jkl 
+	6: 6mno
+	7: 7pqrs
+	8: 8tuv
+	9: 9wxyz
+	0: 0 ó espacio
+	#: Activar o desactivar mayúsculas
+
+	Por defecto inicia en mayúsculas.
+
+	Por ejemplo la entrada:
+	444#6666555522
+	debía imprimir "Hola"
+
+	Y además era cíclico, tipo 22 debía imprimir "a" pero 222222 también era "a"
+	Y para mostrar letras de la misma tecla, usando espacios, ejemplo 2 22 222 debía imprimir 2ab
+*/
+
 const keyboard = { 0: ['0', ' '], 1: ['1', '.'], 2: ['2', 'a', 'b', 'c'], 3: ['3', 'd', 'e', 'f'], 
 			4: ['4', 'g', 'h', 'i'], 5: ['5', 'j', 'k', 'l'], 6: ['6', 'm', 'n', 'o'], 
 			7: ['7', 'p', 'q', 'r', 's'],  8: ['8', 't', 'u', 'v'], 
