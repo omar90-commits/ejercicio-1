@@ -15,8 +15,8 @@
 	444#6666555522
 	debía imprimir "Hola"
 
-	Y además era cíclico, tipo 22 debía imprimir "a" pero 222222 también era "a"
-	Y para mostrar letras de la misma tecla, usando espacios, ejemplo 2 22 222 debía imprimir 2ab
+	Y además es cíclico, ejem: 22 debía imprimir "a" pero 222222 también era "a"
+	Y para mostrar letras de la misma tecla usa espacios, ejemplo 2 22 222 debía imprimir "2ab"
 */
 
 const keyboard = { 0: ['0', ' '], 1: ['1', '.'], 2: ['2', 'a', 'b', 'c'], 3: ['3', 'd', 'e', 'f'], 
