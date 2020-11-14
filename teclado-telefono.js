@@ -11,8 +11,6 @@
 	0: 0 ó espacio
 	#: Activar o desactivar mayúsculas
 
-	Por defecto inicia en mayúsculas.
-
 	Por ejemplo la entrada:
 	444#6666555522
 	debía imprimir "Hola"
